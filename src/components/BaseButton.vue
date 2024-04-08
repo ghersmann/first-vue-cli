@@ -1,15 +1,11 @@
 <template>
-  <button :class="styling" @click="$emit('btn-clicked')">{{ text }}</button>
+  <button :class="styling" @click="$emit('btn-clicked')"><slot /></button>
 </template>
 
 <script>
 export default {
   emits: ["btn-clicked"],
   props: {
-    text: {
-      type: String,
-      required: true,
-    },
     variant: {
       type: String,
       default: "primary",
@@ -31,16 +27,19 @@ export default {
   border: 3px solid transparent;
   border-radius: 3px;
   padding: 5px;
+  width: 100%;
   cursor: pointer;
 }
 
 .btn--primary {
+  opacity: 1;
   border-color: var(--primary-dark);
   background-color: var(--primary);
   color: #fff;
 }
 
 .btn--primary:hover {
+  opacity: 1;
   border-color: var(--primary);
   background-color: var(--primary-dark);
 }
